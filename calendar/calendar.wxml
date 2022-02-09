@@ -1,0 +1,46 @@
+<!--dist/calendar/calendar.wxml-->
+<view class="aq-calendar" wx:if="{{!isMonth}}">
+  <view class="aq-calendar-title">{{noeDate}} <view class="aq-calendar-define" catchtap="calendarDefine">确定</view>
+  </view>
+  <view class="aq-calendar-weeks aq-calendar-flex">
+    <view class="week aq-calendar-item" wx:for="{{weeks}}" wx:key="this">{{item}}</view>
+  </view>
+  <view class="aq-calendar-content">
+    <scroll-view class="aq-calendar-scroll" scroll-y='true' scroll-into-view="{{intoView}}">
+       <view class="more" catchtap="prevMore">加载更多</view>
+      <view wx:for="{{dateArry}}" wx:for-item="str" wx:for-index="idx" wx:key="this" id="m{{idx}}">
+        <view class="aq-calendar-month">{{str.year}}年{{str.month}}月</view>
+        <view class="aq-calendar-day aq-calendar-flex">
+          <view class="aq-calendar-item" wx:for="{{str.prevDate}}" wx:key="this">
+            <view class="aq-calendar-span"></view>
+          </view>
+          <view class="aq-calendar-item {{activeIndex==index&&activeIdx==idx?'active':''}}" catchtap="selectDay"
+            wx:for="{{str.dayArry}}" wx:key="this" data-index="{{index}}" data-idx="{{idx}}" data-year="{{str.year}}"
+            data-month="{{str.month}}" data-day="{{item.day}}">
+            <view class="aq-calendar-span">{{item.day}}</view>
+          </view>
+        </view>
+      </view>
+      <view class="more last" catchtap="nextMore">加载更多</view>
+    </scroll-view>
+  </view>
+</view>
+<view class="aq-calendar" wx:else>
+  <view class="aq-calendar-title">{{noeDate}} <view class="aq-calendar-define" catchtap="calendarDefine">确定</view>
+  </view>
+  <view class="aq-calendar-content">
+    <scroll-view class="aq-calendar-scroll" scroll-y='true' scroll-into-view="{{intoView}}">
+       <view class="more" catchtap="prevMore">上一年</view>
+      <view class="showMonth">
+        <view class="aq-calendar-month">{{isYear}}年</view>
+        <view class="aq-calendar-day aq-calendar-flex">
+          <view class="aq-calendar-item {{activeIndex==index?'active':''}}" catchtap="selectDay"
+            wx:for="{{monthArry}}" wx:key="this" data-index="{{index}}" data-year="{{isYear}}" data-month="{{item}}">
+            <view class="aq-calendar-span">{{item}}</view>
+          </view>
+        </view>
+      </view>
+      <view class="more last" catchtap="nextMore">下一年</view>
+    </scroll-view>
+  </view>
+</view>

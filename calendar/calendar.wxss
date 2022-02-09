@@ -1,0 +1,61 @@
+/* dist/calendar/calendar.wxss */
+.aq-calendar{
+    font-size: 28rpx;
+    background-color: #ffffff;
+}
+.aq-calendar-title{
+    text-align: center;padding: 15rpx 0;position: relative;border-bottom: 1rpx solid #eeeeee;
+}
+.aq-calendar-define{
+    position: absolute;right: 20rpx;top: 15rpx;color: #ff570e;z-index: 6;
+}
+.aq-calendar-flex{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.aq-calendar-weeks{
+    text-align: center;
+    box-shadow: 0 5rpx 5rpx rgba(0,0,0,0.05);
+    font-size: 22rpx;
+}
+.aq-calendar-item{
+    width: 14.285%;
+    height: 80rpx;
+    line-height: 80rpx;
+    text-align: center;
+}
+.aq-calendar-month{
+    color: #cccccc;padding: 15rpx 30rpx;
+}
+.aq-calendar-span{
+    display: inline-block;
+    border-radius: 50%;
+    width: 60rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+}
+
+.aq-calendar-item.active .aq-calendar-span{
+    background-color: #ff570e;
+    background: linear-gradient(to right,#fa8b5c,#ff570e);
+    color: white;
+    box-shadow: 0 0 15rpx rgba(0,0,0,0.2);
+}
+.aq-calendar-scroll{
+    height: 480rpx;padding-bottom: env(safe-area-inset-bottom);
+}
+.more{
+    text-align: center;color: #ff570e;padding-top: 20rpx;
+}
+.more.last{
+    padding-top: 0;padding-bottom: 20rpx;
+}
+.showMonth{
+    padding: 0 30rpx;
+}
+.showMonth .aq-calendar-item{
+    width: 20%;
+    height: 90rpx;
+    line-height: 90rpx;
+}
